@@ -12,15 +12,15 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-var res = null;
-// 执行查询
-pool.query('SELECT * FROM user', (error, results, fields) => {
-  if (error) throw error;
-  console.log(results);
-  res = results;
-});
 
 exports.handler = async () => {
+  var res = null;
+  // 执行查询
+  pool.query('SELECT * FROM user', (error, results, fields) => {
+    if (error) throw error;
+    console.log(results);
+    res = JSON.stringify(results);;
+  });
   return {
     statusCode: 200,
     body: `hello world! I have a BUG : ${res}`
