@@ -27,6 +27,10 @@ async function queryDatabase() {
 
 // 定义 Netlify 云函数处理函数
 export async function handler(event, context) {
+    return {
+	    statusCode: 200,
+	    body: `${dburl}, ${dbpassword}`
+    }
     try {
         // 调用查询数据库的函数
         const ans = await queryDatabase();
