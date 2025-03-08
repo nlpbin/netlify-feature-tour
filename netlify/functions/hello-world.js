@@ -24,7 +24,10 @@ function queryDatabase() {
 
 exports.handler = async() => {
     const ans = await queryDatabase();
-    // console.log(ans);
+    return {
+            statusCode: 200,
+            body: 'hello'
+    }
     return {
             statusCode: 200,
             body: ans
