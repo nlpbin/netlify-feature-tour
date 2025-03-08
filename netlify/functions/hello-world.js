@@ -1,3 +1,5 @@
+const mysql = require('mysql');
+
 exports.handler = async () => {
   const mySecret = process.env.dburl;
   return {
