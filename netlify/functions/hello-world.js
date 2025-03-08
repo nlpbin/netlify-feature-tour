@@ -1,4 +1,6 @@
 const mysql = require('mysql2');
+const dburl = process.env.dburl;
+const dbpassword = process.env.dbpassword;
 
 const pool = mysql.createPool({
   host: `${dburl}`,
@@ -19,10 +21,9 @@ pool.query('SELECT * FROM user', (error, results, fields) => {
 });
 
 exports.handler = async () => {
-  const mySecret = process.env.dburl;
   return {
     statusCode: 200,
-    body: `hello world! I have a ${mySecret} : ${res}`
+    body: `hello world! I have a BUG : ${res}`
   };
 };
 
