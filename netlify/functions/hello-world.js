@@ -23,7 +23,7 @@ exports.handler = async () => {
   });
   return {
     statusCode: 200,
-    body: `hello world! I have a BUG : ${res}`
+    body: `hello world! I have a BUG ${pool}: ${res}`
   };
 };
 
