@@ -14,16 +14,16 @@ const pool = mysql.createPool({
 
 
 exports.handler = async () => {
-  var res = null;
+  var res = {};
   // 执行查询
   pool.query('SELECT * FROM user', (error, results, fields) => {
     if (error) throw error;
     console.log(results);
-    res = JSON.stringify(results);;
+    res.b = JSON.stringify(results);
   });
   return {
     statusCode: 200,
-    body: `hello world! I have a BUG ${pool}: ${res}`
+    body: `hello world! I have a BUG ${pool}: ${res.b}`
   };
 };
 
