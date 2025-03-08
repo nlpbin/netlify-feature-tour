@@ -45,7 +45,7 @@ export async function handler(event, context) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ error: '数据库查询出错' })
+	    body: JSON.stringify({ error: '数据库查询出错', err: error })
         };
     }
 }
