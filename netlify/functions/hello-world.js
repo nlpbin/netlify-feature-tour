@@ -3,12 +3,12 @@ import mysql from 'mysql2/promise';
 const dburl = process.env.dburl;
 const dbpassword = process.env.dbpassword;
 
-const conn = mysql.createConnection({
+const config = {
     host: `${dburl}`,
     user: 'gaobin',
     password: `${dbpassword}`,
     database: 'ywh'
-});
+};
 
 // 定义一个处理数据库查询的 Promise 函数
 async function queryDatabase() {
@@ -27,10 +27,6 @@ async function queryDatabase() {
 
 // 定义 Netlify 云函数处理函数
 export async function handler(event, context) {
-    return {
-	    statusCode: 200,
-	    body: `${dburl}, ${dbpassword}`
-    }
     try {
         // 调用查询数据库的函数
         const ans = await queryDatabase();
