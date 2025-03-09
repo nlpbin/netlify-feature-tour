@@ -55,7 +55,7 @@ exports.handler = async function (event, context) {
             };
         } finally {
             // 释放连接回连接池
-            connection.release();
+            await connection.end();
         }
     } catch (error) {
         console.error('Error in Netlify function:', error);
