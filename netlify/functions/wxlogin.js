@@ -1,8 +1,8 @@
 const axios = require('axios');
 
 // 微信小程序的 appId 和 appSecret，需要替换为你的真实信息
-const appId = `${appid}`;
-const appSecret = `${appsecret}`;
+const appId = process.env.appid;
+const appSecret = process.env.appsecret;
 
 exports.handler = async function (event, context) {
   if (event.httpMethod!== 'POST') {
